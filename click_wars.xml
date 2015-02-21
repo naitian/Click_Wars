@@ -9,7 +9,7 @@
         <!DOCTYPE html>
         <html>
             <head>
-                <link rel="stylesheet" href="https://raw.githubusercontent.com/naitian/Click_Wars/master/click_wars.css" />
+                <link rel="stylesheet" href="https://rawgit.com/naitian/Click_Wars/master/click_wars.css" />
             </head>
             <body>
                 <div id="body">
@@ -22,7 +22,7 @@
                     </ul>
                 </div>
                 <script src="//talkgadget.google.com/hangouts/api/hangout.js?v=1.0"></script>
-                <script src="https://raw.githubusercontent.com/naitian/Click_Wars/master/click_wars.js"></script>
+                <script src="https://rawgit.com/naitian/Click_Wars/master/click_wars.js"></script>
             </body>
         </html>
     ]]>	
