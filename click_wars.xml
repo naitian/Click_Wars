@@ -7,10 +7,10 @@
   <Content type="html">	
     <![CDATA[
         <!DOCTYPE html>
-        <script src="//talkgadget.google.com/hangouts/api/hangout.js?v=1.0"></script>
-        <script src="http://www.theprofessionalamateur.net63.net/click_wars/click_wars.js"></script>
-        <link rel="stylesheet" href="http://www.theprofessionalamateur.net63.net/click_wars/click_wars.css" type="text/css" />
         <html>
+            <head>
+                <link rel="stylesheet" href="http://www.theprofessionalamateur.net63.net/click_wars/click_wars.css" type="text/css" />
+            </head>
             <body>
                 <div id="body">
                     herro world
@@ -21,8 +21,10 @@
 
                     </ul>
                 </div>
+                <script src="//talkgadget.google.com/hangouts/api/hangout.js?v=1.0"></script>
+                <script src="http://www.theprofessionalamateur.net63.net/click_wars/click_wars.js"></script>
             </body>
-        
+        </html>
     ]]>	
   </Content>	
 </Module>
