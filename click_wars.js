@@ -14,7 +14,7 @@ function init(){
     for(var i = 0; i < participants.length; i++){
         avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' /></li>";
         names_list.innerHTML += "<li><img src = '" + participants[i].person.displayName + "' /></li>";
-        participant_id[i] = participants.id;
+        participant_id[i] = participants[i].id;
     }
     
 }
