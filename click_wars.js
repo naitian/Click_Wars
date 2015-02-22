@@ -16,14 +16,14 @@ function init(){
     for(var i = 0; i < participants.length; i++){
         avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' /></li>";
         names_list.innerHTML += "<li><img src = '" + participants[i].person.displayName + "' /></li>";
-<<<<<<< HEAD
+
         participant_id[i] = participants[i].id;
-=======
+
         participant_id[i] = participants.id;
         console.log("URL:" + i + " " + participants[i].person.image.url);
         console.log("Display Name:" + i + " " + participants[i].person.displayName);
         console.log("Id:" + i + " " + participants.id);
->>>>>>> origin/master
+
     }
     
 }
