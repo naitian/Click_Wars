@@ -11,7 +11,7 @@ console.log("vars made");
 function init(){
     document.getElementById("body").innerHTML = "hey guys. What's up?";
     participants = Hangout.getEnabledParticipants();
-    for(var i = 0; i < participants.length(); i++){
+    for(var i = 0; i < participants.length; i++){
         avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' /></li>";
         names_list.innerHTML += "<li><img src = '" + participants[i].person.displayName + "' /></li>";
         participant_id[i] = participants.id;
