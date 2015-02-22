@@ -19,10 +19,10 @@ function init(){
 
         participant_id[i] = participants[i].id;
 
-        participant_id[i] = participants.id;
+        //participant_id[i] = participants.id;
         console.log("URL:" + i + " " + participants[i].person.image.url);
         console.log("Display Name:" + i + " " + participants[i].person.displayName);
-        console.log("Id:" + i + " " + participants.id);
+        console.log("Id:" + i + " " + participants_id[i].id);
 
     }
     
