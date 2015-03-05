@@ -10,10 +10,11 @@ var names_list = document.getElementById("names");
 console.log("vars made");
 
 function init(){
-    document.getElementById("body").innerHTML += "hey guys. What's up?";
+    //document.getElementById("body").innerHTML += "hey guys. What's up?";
     participants = Hangout.getEnabledParticipants();
     console.log("Participants: " + participants);
     for(var i = 0; i < participants.length; i++){
+        console.log(avatar_list);
         avatar_list.innerHTML += "innerhtml div test";
         avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' /></li>";
         names_list.innerHTML += "<li>" + participants[i].person.displayName + "</li>";
