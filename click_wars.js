@@ -10,7 +10,7 @@ var names_list = document.getElementById("names");
 console.log("vars made");
 
 function init(){
-    document.getElementById("body").innerHTML = "hey guys. What's up?";
+    document.getElementById("body").innerHTML += "hey guys. What's up?";
     participants = Hangout.getEnabledParticipants();
     console.log("Participants: " + participants);
     for(var i = 0; i < participants.length; i++){
