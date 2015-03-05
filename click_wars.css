@@ -1,11 +1,13 @@
 .avatar_pic {
-    border-radius: : 100%;
     border-style: solid;
     border-width: thick;
+    border-radius: : 100%;
+    border-color: #fff;
 }
 
 li {
     display: block;
     list-style: none;
     text-align: center;
+    font-family: sans-serif;
 }
