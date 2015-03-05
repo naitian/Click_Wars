@@ -4,7 +4,7 @@
 }
 
 li {
-    display: block;
+    display: inline-block;
     list-style: none;
     text-align: center;
     font-family: sans-serif;
