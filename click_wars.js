@@ -15,9 +15,9 @@ function init(){
     console.log("Participants: " + participants);
     for(var i = 0; i < participants.length; i++){
         console.log(avatar_list);
-        avatar_list.innerHTML += "innerhtml div test";
-        avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' /></li>";
-        names_list.innerHTML += "<li>" + participants[i].person.displayName + "</li>";
+        //avatar_list.innerHTML += "innerhtml div test";
+        avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' class = 'avatar_pic' /> <br /><span class = 'name'>" + participants[i].person.displayName + "</span></li>";
+        
 
         //participant_id[i] = participants[i].person.id;
 

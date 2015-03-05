@@ -1,0 +1,11 @@
+.avatar_pic {
+    border-radius: : 100%;
+    border-style: solid;
+    border-width: thick;
+}
+
+li {
+    display: block;
+    list-style: none;
+    text-align: center;
+}
