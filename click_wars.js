@@ -14,8 +14,9 @@ function init(){
     participants = Hangout.getEnabledParticipants();
     console.log("Participants: " + participants);
     for(var i = 0; i < participants.length; i++){
+        avatar_list.innerHTML += "innerhtml div test";
         avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' /></li>";
-        names_list.innerHTML += "<li><img src = '" + participants[i].person.displayName + "' /></li>";
+        names_list.innerHTML += "<li>" + participants[i].person.displayName + "</li>";
 
         participant_id[i] = participants[i].person.id;
 
