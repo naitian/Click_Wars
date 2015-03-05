@@ -10,3 +10,11 @@ li {
     font-family: sans-serif;
     color: #fff;
 }
+
+#body {
+    width: auto;
+}
+
+ul {
+    margin: 0 auto;   
+}
