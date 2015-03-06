@@ -6,7 +6,6 @@ var participants = new Array();
 var scores = new Array();
 //var participant_id = new Array();
 var avatar_list = document.getElementById("avatars");
-var names_list = document.getElementById("names");
 var body = document.getElementById("body");
 var game_on = false;
 console.log("vars made");
@@ -20,7 +19,7 @@ function init(){
     else {
         //document.getElementById("body").innerHTML += "hey guys. What's up?";
         participants = Hangout.getEnabledParticipants();
-
+        avatar_list.innerHTML = "";
         console.log("Participants: " + participants);
         for(var i = 0; i < participants.length; i++){
             //console.log(avatar_list);
