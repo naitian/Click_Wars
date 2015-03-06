@@ -10,6 +10,18 @@ var body = document.getElementById("body");
 var game_on = false;
 console.log("vars made");
 
+function playStart(){
+    alert("Hi. The game should start now. But I haven't gotten there yet. Okay. Click cancel and we can keep on working. Bye!");
+}
+
+function toggleReady(){
+    getParticipantById(getLocalParticipantId()).ready = !getParticipantById(getLocalParticipantId()).ready;
+    for(var i = 0; i < participants.length; i++){
+        if(participants[i].ready = false) return;
+    }
+    playStart();
+}
+
 function init(){
     body.style.width = window.innerWidth;
     body.style.height = window.innerHeight;
@@ -34,10 +46,11 @@ function init(){
             console.log("URL:" + i + " " + participants[i].person.image.url);
             console.log("Display Name:" + i + " " + participants[i].person.displayName);
             //console.log("Id:" + i + " " + participants_id[i]);
-
         }
+        body.innerHTML = "<div onclick='toggleReady()'>Ready</div>
     }
 }
+
 
 gapi.hangout.onApiReady.add(function(eventObj){
     console.log("api ready");
