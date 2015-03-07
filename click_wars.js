@@ -47,7 +47,7 @@ function init(){
             console.log("Display Name:" + i + " " + participants[i].person.displayName);
             //console.log("Id:" + i + " " + participants_id[i]);
         }
-        body.innerHTML = "<div onclick='toggleReady()'>Ready</div>
+        body.innerHTML = "<div onclick='toggleReady()'>Ready</div>"
     }
 }
 
