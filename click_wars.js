@@ -17,9 +17,11 @@ function playStart(){
 
 function toggleReady(){
     Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready = !Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready;
+    document.getElementById("a" + participants.length).style.borderColor = #fff;
+    if(Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready == false) document.getElementById("a" + participants.length).style.borderColor = #2ecc71;
+
     for(var i = 0; i < participants.length; i++){
         if(participants[i].ready == false) return;
-        
     }
     playStart();
 }
@@ -40,7 +42,7 @@ function init(){
             //console.log(avatar_list);
             participants[i].ready = false;
             //avatar_list.innerHTML += "innerhtml div test";
-            avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' class = 'avatar_pic' /> <br /><span class = 'name'>" + participants[i].person.displayName + "</span></li>";
+            avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' class = 'avatar_pic' id='a" + i + "'/> <br /><span class = 'name'>" + participants[i].person.displayName + "</span></li>";
 
 
             //participant_id[i] = participants[i].person.id;
