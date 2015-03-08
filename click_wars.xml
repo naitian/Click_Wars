@@ -17,7 +17,7 @@
                     <ul id="avatars">
                         
                     </ul>
-
+                    <div id="ready_container"></div>
                 </div>
                 <script src="//talkgadget.google.com/hangouts/api/hangout.js?v=1.0"></script>
                 <script src="https://rawgit.com/naitian/Click_Wars/master/click_wars.js"></script>

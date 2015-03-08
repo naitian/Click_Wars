@@ -7,6 +7,7 @@ var scores = new Array();
 //var participant_id = new Array();
 var avatar_list = document.getElementById("avatars");
 var body = document.getElementById("body");
+var ready_div = document.getElementById("ready_container");
 var game_on = false;
 console.log("vars made");
 
@@ -32,7 +33,8 @@ function init(){
     else {
         //document.getElementById("body").innerHTML += "hey guys. What's up?";
         participants = Hangout.getEnabledParticipants();
-        body.innerHTML = "";
+        avatar_list.innerHTML = "";
+        ready_div.innerHTML = "";
         console.log("Participants: " + participants);
         for(var i = 0; i < participants.length; i++){
             //console.log(avatar_list);
@@ -48,7 +50,7 @@ function init(){
             console.log("Display Name:" + i + " " + participants[i].person.displayName);
             //console.log("Id:" + i + " " + participants_id[i]);
         }
-        body.innerHTML += "<div onclick='toggleReady()'>Ready</div>";
+        ready_div.innerHTML += "<div onclick='toggleReady()'>Ready</div>";
         console.log("ready div made");
     }
 }
