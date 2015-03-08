@@ -18,7 +18,7 @@ function playStart(){
 function toggleReady(){
     Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready = !Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready;
     for(var i = 0; i < participants.length; i++){
-        if(participants[i].ready = false) return;
+        if(participants[i].ready == false) return;
         
     }
     playStart();
