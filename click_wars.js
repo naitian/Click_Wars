@@ -15,9 +15,10 @@ function playStart(){
 }
 
 function toggleReady(){
-    getParticipantById(getLocalParticipantId()).ready = !getParticipantById(getLocalParticipantId()).ready;
+    Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready = !Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready;
     for(var i = 0; i < participants.length; i++){
         if(participants[i].ready = false) return;
+        
     }
     playStart();
 }
@@ -31,7 +32,7 @@ function init(){
     else {
         //document.getElementById("body").innerHTML += "hey guys. What's up?";
         participants = Hangout.getEnabledParticipants();
-        avatar_list.innerHTML = "";
+        body.innerHTML = "";
         console.log("Participants: " + participants);
         for(var i = 0; i < participants.length; i++){
             //console.log(avatar_list);
@@ -48,6 +49,7 @@ function init(){
             //console.log("Id:" + i + " " + participants_id[i]);
         }
         body.innerHTML += "<div onclick='toggleReady()'>Ready</div>";
+        console.log("ready div made");
     }
 }
 
