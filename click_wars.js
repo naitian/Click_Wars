@@ -24,7 +24,7 @@ function toggleReady(){
     Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready = !Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready;
     Hangout.data.setValue(Hangout.getLocalParticipantId(), Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready.toString());
     for(var i = 0; i < participants.length; i++){
-        if(Hangout.data.getValue(participants[i].id) === false) return;
+        if(Hangout.data.getValue(participants[i].id) == 'false') return;
     }
     playStart();
 }
@@ -49,7 +49,8 @@ function init(){
         for(var i = 0; i < participants.length; i++){
             //console.log(avatar_list);
             participants[i].ready = false;
-            Hangout.data.setValue(participants[i].id, participants[i].ready.toString());
+            var ready_string = participants[i].ready.toString();
+            Hangout.data.setValue(participants[i].id, ready_string);
             console.log(Hangout.data.getValue(participants[i].id));
             localScores[i] = 0;
             //avatar_list.innerHTML += "innerhtml div test";
