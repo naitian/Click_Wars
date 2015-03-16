@@ -49,7 +49,8 @@ function init(){
         for(var i = 0; i < participants.length; i++){
             //console.log(avatar_list);
             participants[i].ready = false;
-            Hangout.data.setValue(Hangout.getLocalParticipantId(), Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready.toString());            
+            Hangout.data.setValue(participants[i].id, participants[i].ready.toString());
+            console.log(Hangout.data.getValue(participants[i].id))
             localScores[i] = 0;
             //avatar_list.innerHTML += "innerhtml div test";
             avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' class = 'avatar_pic' id='a" + i + "' onclick='score(" + i +  ")'/> <br /><span class = 'name'>" + participants[i].person.displayName + "</span></li>";
