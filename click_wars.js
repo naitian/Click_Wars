@@ -52,7 +52,7 @@ function init(){
             localScores[i] = 0;
             //avatar_list.innerHTML += "innerhtml div test";
             avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' class = 'avatar_pic' id='a" + i + "' onclick='score(" + i +  ")'/> <br /><span class = 'name'>" + participants[i].person.displayName + "</span></li>";
-            document.getElementById("a" + participants.length).style.borderColor = "#fff";
+            document.getElementById("a" + i).style.borderColor = "#fff";
             if(participants[i].ready === true) document.getElementById("a" + i).style.borderColor = "#2ecc71";
 
 
