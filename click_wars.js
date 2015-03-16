@@ -48,10 +48,12 @@ function init(){
         console.log("Participants: " + participants);
         for(var i = 0; i < participants.length; i++){
             //console.log(avatar_list);
-            participants[i].ready = false;
-            var ready_string = participants[i].ready.toString();
-            Hangout.data.setValue(participants[i].id, ready_string);
-            console.log(Hangout.data.getValue(participants[i].id));
+            if(Hangout.data.getValue(participants[i].id) === null){
+                participants[i].ready = false;
+                var ready_string = participants[i].ready.toString();
+                Hangout.data.setValue(participants[i].id, ready_string);
+                console.log(Hangout.data.getValue(participants[i].id));
+            }
             localScores[i] = 0;
             //avatar_list.innerHTML += "innerhtml div test";
             avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' class = 'avatar_pic' id='a" + i + "' onclick='score(" + i +  ")'/> <br /><span class = 'name'>" + participants[i].person.displayName + "</span></li>";
