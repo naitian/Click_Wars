@@ -48,7 +48,7 @@ function init(){
         console.log("Participants: " + participants);
         for(var i = 0; i < participants.length; i++){
             //console.log(avatar_list);
-            if(Hangout.data.getValue(participants[i].id) === null){
+            if(Hangout.data.getValue(participants[i].id) === undefined){
                 participants[i].ready = false;
                 var ready_string = participants[i].ready.toString();
                 Hangout.data.setValue(participants[i].id, ready_string);
