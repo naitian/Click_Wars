@@ -18,6 +18,7 @@ console.log("vars made");
 function playStart(){
     alert("Hi. The game should start now. But I haven't gotten there yet. Okay. Click cancel and we can keep on working. Bye!");
     game_on = true;
+    refresh();
 }
 
 function toggleReady(){
