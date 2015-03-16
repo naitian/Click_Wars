@@ -27,7 +27,7 @@ function toggleReady(){
     console.log("---ready changed to " + Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready)
     Hangout.data.setValue(Hangout.getLocalParticipantId(), Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready.toString());
     for(var i = 0; i < participants.length; i++){
-        console.log("---" + i + ": " + Hangout.data.getValue(participants[i].id)
+        console.log("---" + i + ": " + Hangout.data.getValue(participants[i].id))
         if(Hangout.data.getValue(participants[i].id) == 'false') return;
     }
     console.log("playStart should be called");
