@@ -2,9 +2,13 @@
 var Hangout = gapi.hangout;
 //console.log("Hangout: " + Hangout);
 //console.log("api done");
-var participants = new Array();
-var scores = new Array();
+var participants = [];
+var localScores = [];
+var cloudScores = [];
+var ready = "";
 //var participant_id = new Array();
+
+
 var avatar_list = document.getElementById("avatars");
 var body = document.getElementById("body");
 var ready_div = document.getElementById("ready_container");
@@ -13,17 +17,21 @@ console.log("vars made");
 
 function playStart(){
     alert("Hi. The game should start now. But I haven't gotten there yet. Okay. Click cancel and we can keep on working. Bye!");
+    game_on = true;
 }
 
 function toggleReady(){
     Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready = !Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready;
-    document.getElementById("a" + participants.length).style.borderColor = #fff;
-    if(Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready == false) document.getElementById("a" + participants.length).style.borderColor = #2ecc71;
-
+    Hangout.data.setValue(Hangout.getLocalParticipantId(), Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready.toString());
     for(var i = 0; i < participants.length; i++){
-        if(participants[i].ready == false) return;
+        if(Hangout.data.getValue(participants[i].id) == 'false') return;
     }
-    playStart();
+    playStart;
+}
+
+function score(player){
+    localScores[player] -= 1;
+    localScores[participants.length] += 1;
 }
 
 function init(){
@@ -41,8 +49,11 @@ function init(){
         for(var i = 0; i < participants.length; i++){
             //console.log(avatar_list);
             participants[i].ready = false;
+            localScores[i] = 0;
             //avatar_list.innerHTML += "innerhtml div test";
-            avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' class = 'avatar_pic' id='a" + i + "'/> <br /><span class = 'name'>" + participants[i].person.displayName + "</span></li>";
+            avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' class = 'avatar_pic' id='a" + i + "' onclick='score(" + i +  ")'/> <br /><span class = 'name'>" + participants[i].person.displayName + "</span></li>";
+            document.getElementById("a" + participants.length).style.borderColor = "#fff";
+            if(participants[i].ready === true) document.getElementById("a" + i).style.borderColor = "#2ecc71";
 
 
             //participant_id[i] = participants[i].person.id;
@@ -58,12 +69,17 @@ function init(){
 }
 
 
-gapi.hangout.onApiReady.add(function(eventObj){
+Hangout.onApiReady.add(function(eventObj){
     console.log("api ready");
     init();
 });
 
-gapi.hangout.onParticipantsChanged.add(function(eventObj){
+Hangout.onParticipantsChanged.add(function(eventObj){
     console.log("changed people");
+    init();
+});
+
+Hangout.data.onStateChanged.add(function(eventObj){
+    console.log("toggled ready");
     init();
 });
