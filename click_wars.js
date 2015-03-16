@@ -104,4 +104,5 @@ Hangout.onParticipantsChanged.add(function(eventObj){
 Hangout.data.onStateChanged.add(function(eventObj){
     console.log("toggled ready");
     refresh();
+    window.setTimeout(refresh, 1000);
 });
