@@ -35,6 +35,7 @@ function score(player){
 }
 
 function refresh(){
+    console.log("refresh running");
     if(game_on){
         body.innerHTML = "Too late, bruh. A game is already in session. You know what they say. You snooze, you lose. Loser.";
     }
