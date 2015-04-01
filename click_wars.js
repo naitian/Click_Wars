@@ -5,7 +5,8 @@ var Hangout = gapi.hangout;
 var participants = [];
 var localScores = [];
 var cloudScores = [];
-var ready = "";
+var localReady = "";
+var localId = "";
 //var participant_id = new Array();
 
 
@@ -22,8 +23,8 @@ function playStart(){
 }
 
 function toggleReady(){
-    Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready = !Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready;
-    Hangout.data.setValue(Hangout.getLocalParticipantId(), Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready.toString());
+    localReady = !localReady;
+    Hangout.data.setValue(localId, localReady.toString());
     for(var i = 0; i < participants.length; i++){
         if(Hangout.data.getValue(participants[i].id) == 'false') return;
     }
@@ -66,6 +67,8 @@ function refresh(){
 }
 
 function init(){
+    localReady = false;
+    localId = Hangout.getLocalParticipantId();
     body.style.width = window.innerWidth;
     body.style.height = window.innerHeight;
     if(game_on){
