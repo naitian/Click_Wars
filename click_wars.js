@@ -28,14 +28,18 @@ function toggleReady(){
     Hangout.data.setValue(localId, localReady.toString());
 
     console.log("toggleReady() clicked");
-    console.log("---ready changed to " + localReady)
+    console.log("---ready changed to " + localReady);
 
+    checkReady();
+}
+
+function checkReady(){
     for(var i = 0; i < participants.length; i++){
         console.log("---" + i + ": " + Hangout.data.getValue(participants[i].id));
         if(Hangout.data.getValue(participants[i].id) == 'false') return;
     }
     console.log("playStart should be called");
-    playStart();
+    playStart();   
 }
 
 function score(player){
@@ -114,5 +118,5 @@ Hangout.onParticipantsChanged.add(function(eventObj){
 Hangout.data.onStateChanged.add(function(eventObj){
     console.log("toggled ready");
     refresh();
-    window.setTimeout(refresh, 1000);
+    checkReady();
 });
