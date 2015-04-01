@@ -23,15 +23,13 @@ function playStart(){
 }
 
 function toggleReady(){
-<<<<<<< HEAD
+
     localReady = !localReady;
     Hangout.data.setValue(localId, localReady.toString());
-=======
+
     console.log("toggleReady() clicked");
-    Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready = !Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready;
-    console.log("---ready changed to " + Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready)
-    Hangout.data.setValue(Hangout.getLocalParticipantId(), Hangout.getParticipantById(Hangout.getLocalParticipantId()).ready.toString());
->>>>>>> origin/master
+    console.log("---ready changed to " + localReady)
+
     for(var i = 0; i < participants.length; i++){
         console.log("---" + i + ": " + Hangout.data.getValue(participants[i].id));
         if(Hangout.data.getValue(participants[i].id) == 'false') return;
