@@ -59,7 +59,7 @@ function refresh(){
             //avatar_list.innerHTML += "innerhtml div test";
             avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' class = 'avatar_pic' id='a" + i + "' onclick='score(" + i +  ")'/> <br /><span class = 'name'>" + participants[i].person.displayName + "</span></li>";
             document.getElementById("a" + i).style.borderColor = "#fff";
-            if(Hangout.data.getValue(participants[i].id) == 'false') document.getElementById("a" + i).style.borderColor = "#2ecc71";
+            if(Hangout.data.getValue(participants[i].id) == 'true') document.getElementById("a" + i).style.borderColor = "#2ecc71";
 
             //participant_id[i] = participants[i].person.id;
 
