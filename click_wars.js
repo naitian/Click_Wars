@@ -36,7 +36,7 @@ function toggleReady(){
 function checkReady(){
     for(var i = 0; i < participants.length; i++){
         console.log("---" + i + ": " + Hangout.data.getValue(participants[i].id));
-        if(Hangout.data.getValue(participants[i].id) == 'false') return;
+        if(Hangout.data.getValue(participants[i].id) !== 'true') return;
     }
     console.log("playStart should be called");
     playStart();   
