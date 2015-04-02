@@ -80,6 +80,7 @@ function refresh(){
 function init(){
     localReady = false;
     localId = Hangout.getLocalParticipantId();
+    Hangout.data.setValue(localId, localReady.toString());
     body.style.width = window.innerWidth;
     body.style.height = window.innerHeight;
     if(game_on){
