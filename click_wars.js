@@ -13,12 +13,12 @@ var localId = "";
 var avatar_list = document.getElementById("avatars");
 var body = document.getElementById("body");
 var ready_div = document.getElementById("ready_container");
-var game_on = false;
+var gameOn = false;
 console.log("vars made");
 
 function playStart(){
     alert("Hi. The game should start now. But I haven't gotten there yet. Okay. Click cancel and we can keep on working. Bye!");
-    game_on = true;
+    gameOn = true;
     refresh();
 }
 
@@ -49,7 +49,7 @@ function score(player){
 
 function refresh(){
     console.log("refresh running");
-    if(game_on){
+    if(gameOn){
         body.innerHTML = "Too late, bruh. A game is already in session. You know what they say. You snooze, you lose. Loser.";
     }
     else {
@@ -80,29 +80,21 @@ function refresh(){
 function init(){
     localReady = false;
     localId = Hangout.getLocalParticipantId();
-    Hangout.data.setValue(localId, localReady.toString());
     body.style.width = window.innerWidth;
     body.style.height = window.innerHeight;
-    if(game_on){
-        body.innerHTML = "Too late, bruh. A game is already in session. You know what they say. You snooze, you lose. Loser.";
+    //document.getElementById("body").innerHTML += "hey guys. What's up?";
+    participants = Hangout.getEnabledParticipants();
+    avatar_list.innerHTML = "";
+    ready_div.innerHTML = "";
+    console.log("Participants: " + participants);
+    for(var i = 0; i < participants.length; i++){
+        //console.log(avatar_list);
+        Hangout.data.setValue(participants[i].id, "false");
+        console.log(Hangout.data.getValue(participants[i].id));        
     }
-    else {
-        //document.getElementById("body").innerHTML += "hey guys. What's up?";
-        participants = Hangout.getEnabledParticipants();
-        avatar_list.innerHTML = "";
-        ready_div.innerHTML = "";
-        console.log("Participants: " + participants);
-        for(var i = 0; i < participants.length; i++){
-            //console.log(avatar_list);
-            participants[i].ready = false;
-            var ready_string = participants[i].ready.toString();
-            Hangout.data.setValue(participants[i].id, ready_string);
-            console.log(Hangout.data.getValue(participants[i].id));        
-        }
-        refresh();
-        ready_div.innerHTML += "<div onclick='toggleReady()'>Ready</div>";
-        console.log("ready div made");
-    }
+    refresh();
+    ready_div.innerHTML += "<div onclick='toggleReady()'>Ready</div>";
+    console.log("ready div made");
 }
 
 
