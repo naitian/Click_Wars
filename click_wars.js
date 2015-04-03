@@ -40,6 +40,7 @@ function toggleReady(){
 function checkReady(){
     console.log("=====CHECK READY");
     console.log("-----game_on:" + game_on);
+    if(participants.length == 0) return;
     for(var i = 0; i < participants.length; i++){
         console.log("---" + i + ": " + Hangout.data.getValue(participants[i].id));
         if(Hangout.data.getValue(participants[i].id) !== 'true') return;
