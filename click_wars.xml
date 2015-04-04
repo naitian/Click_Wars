@@ -11,7 +11,7 @@
             <head>
                 <link rel="stylesheet" href="https://rawgit.com/naitian/Click_Wars/master/click_wars.css" />
             </head>
-            <body onload="init()">
+            <body>
                 <div id="body">
                     <!-- herro world -->
                     <ul id="avatars">

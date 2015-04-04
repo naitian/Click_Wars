@@ -9,7 +9,6 @@ var localReady = "";
 var localId = "";
 //var participant_id = new Array();
 
-
 var avatar_list = document.getElementById("avatars");
 var body = document.getElementById("body");
 var ready_div = document.getElementById("ready_container");
@@ -20,9 +19,13 @@ console.log("-----game_on:" + game_on);
 function playStart(){
     console.log("=====PLAY START");
     console.log("-----game_on:" + game_on);
-    alert("Hi. The game should start now. But I haven't gotten there yet. Okay. Click cancel and we can keep on working. Bye!");
+    //alert("Hi. The game should start now. But I haven't gotten there yet. Okay. Click cancel and we can keep on working. Bye!");
     game_on = true;
+    
     refresh();
+    for(var i = 0; i <= 30000; i += participants.length * 100){
+        var intervalID = window.setInterval(updateScores, participants.length * 100);
+    }
 }
 
 function toggleReady(){
@@ -50,10 +53,12 @@ function checkReady(){
 }
 
 function score(player){
-    console.log("=====SCORE");
-    console.log("-----game_on:" + game_on);
-    localScores[player] -= 1;
-    localScores[participants.length] += 1;
+    if(game_on){
+        console.log("=====SCORE");
+        console.log("-----game_on:" + game_on);
+        localScores[player] -= 1;
+        localScores[participants.length] += 1;
+    }
 }
 
 function refresh(){
@@ -61,7 +66,15 @@ function refresh(){
     console.log("-----game_on:" + game_on);
     console.log("refresh running");
     if(game_on){
-        body.innerHTML = "Too late, bruh. A game is already in session. You know what they say. You snooze, you lose. Loser.";
+        for(var i = 0; i < participants.length; i++){
+            var tempId = participants[i].id;
+            cloudScores[i] = Hangout.data.getValue(tempId);
+            document.getElementById("n" + i).innerHTML = participants[i].person.displayName + " - " cloudScores[i];
+            
+            console.log("URL:" + i + " " + participants[i].person.image.url);
+            console.log("Display Name:" + i + " " + participants[i].person.displayName);
+            //console.log("Id:" + i + " " + participants_id[i]);
+        }
     }
     else {
         //document.getElementById("body").innerHTML += "hey guys. What's up?";
@@ -72,7 +85,7 @@ function refresh(){
         for(var i = 0; i < participants.length; i++){
             //console.log(avatar_list);
             //avatar_list.innerHTML += "innerhtml div test";
-            avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' class = 'avatar_pic' id='a" + i + "' onclick='score(" + i +  ")'/> <br /><span class = 'name'>" + participants[i].person.displayName + "</span></li>";
+            avatar_list.innerHTML += "<li><img src = '" + participants[i].person.image.url + "' class = 'avatar_pic' id='a" + i + "' onclick='score(" + i +  ")'/> <br /><span class = 'name' id='n" + i + "'>" + participants[i].person.displayName + "</span></li>";
             document.getElementById("a" + i).style.borderColor = "#fff";
             if(Hangout.data.getValue(participants[i].id) == 'true') document.getElementById("a" + i).style.borderColor = "#2ecc71";
 
@@ -117,7 +130,6 @@ function init(){
         console.log("ready div made");
     }
 }
-
 
 Hangout.onApiReady.add(function(eventObj){
     console.log("api ready");
