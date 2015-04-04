@@ -65,18 +65,7 @@ function refresh(){
     console.log("=====REFRESH");
     console.log("-----game_on:" + game_on);
     console.log("refresh running");
-    if(game_on){
-        for(var i = 0; i < participants.length; i++){
-            var tempId = participants[i].id;
-            cloudScores[i] = Hangout.data.getValue(tempId);
-            document.getElementById("n" + i).innerHTML = participants[i].person.displayName + " - " cloudScores[i];
-            
-            console.log("URL:" + i + " " + participants[i].person.image.url);
-            console.log("Display Name:" + i + " " + participants[i].person.displayName);
-            //console.log("Id:" + i + " " + participants_id[i]);
-        }
-    }
-    else {
+    if(!game_on){
         //document.getElementById("body").innerHTML += "hey guys. What's up?";
         participants = Hangout.getEnabledParticipants();
         avatar_list.innerHTML = "";
@@ -98,6 +87,18 @@ function refresh(){
         }
         ready_div.innerHTML += "<div onclick='toggleReady()'>Ready</div>";
         console.log("ready div made");
+        
+    }
+    else { 
+        for(var i = 0; i < participants.length; i++){
+            var tempId = participants[i].id;
+            cloudScores[i] = Hangout.data.getValue(tempId);
+            document.getElementById("n" + i).innerHTML = participants[i].person.displayName + " - " cloudScores[i];
+            
+            console.log("URL:" + i + " " + participants[i].person.image.url);
+            console.log("Display Name:" + i + " " + participants[i].person.displayName);
+            //console.log("Id:" + i + " " + participants_id[i]);
+        }
     }
 }
 
