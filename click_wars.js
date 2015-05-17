@@ -93,7 +93,7 @@ function refresh(){
         for(var i = 0; i < participants.length; i++){
             var tempId = participants[i].id;
             cloudScores[i] = Hangout.data.getValue(tempId);
-            document.getElementById("n" + i).innerHTML = participants[i].person.displayName + " - " cloudScores[i];
+            document.getElementById("n" + i).innerHTML = participants[i].person.displayName + " - " + cloudScores[i];
             
             console.log("URL:" + i + " " + participants[i].person.image.url);
             console.log("Display Name:" + i + " " + participants[i].person.displayName);
